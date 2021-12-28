@@ -1,0 +1,49 @@
+.post {
+  max-width: 700px;
+  border: 1px solid lightgray;
+  margin-bottom: 25px;
+  .post-header {
+    display: flex;
+
+    padding: 10px;
+    background: white;
+    justify-content: space-between;
+    div {
+      display: flex;
+      align-items: center;
+    }
+    .post-header-avatar {
+      margin-right: 10px;
+    }
+  }
+  img {
+    width: 100%;
+    max-height: 800px;
+    object-fit: contain;
+    padding: 10px;
+  }
+  h4 {
+    font-weight: normal;
+    padding: 0 20px;
+  }
+  .post-comments {
+    padding: 0 20px;
+    margin-top: 5px;
+  }
+  form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid lightgray;
+    margin-top: 20px;
+    input {
+      border: none;
+      flex: 1;
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      flex: 0;
+    }
+  }
+}
