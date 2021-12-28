@@ -7,6 +7,9 @@ import Box from '@mui/material/Box'
 import { Button, Input } from '@mui/material'
 import ImageUpload from './components/ImageUpload'
 
+import { confirmAlert } from 'react-confirm-alert' // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+
 const App = () => {
   const [posts, setPosts] = useState([])
   const [open, setOpen] = useState(false)
@@ -59,6 +62,24 @@ const App = () => {
 
       .catch((err) => alert(err.message))
     setOpenSingIn(false)
+  }
+
+  const logOut = (e) => {
+    e.preventDefault()
+    confirmAlert({
+      title: 'Logout',
+      message: 'Are you sure you want to Logout',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => (auth.signOut(), setEmail(''), setPassword('')),
+        },
+        {
+          label: 'No',
+          onClick: () => console.log('NO'),
+        },
+      ],
+    })
   }
 
   const style = {
@@ -145,7 +166,7 @@ const App = () => {
         />
         <h4>{user?.displayName}</h4>
         {user ? (
-          <Button onClick={() => auth.signOut()}>Logout</Button>
+          <Button onClick={logOut}>Logout</Button>
         ) : (
           <div>
             <Button onClick={() => setOpen(true)}>Sing Up</Button>

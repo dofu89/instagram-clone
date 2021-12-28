@@ -8,13 +8,15 @@
   background: #fafafa;
 
   .app-header {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-evenly;
     padding: 15px;
     border-bottom: 1px solid lightgray;
     //margin-bottom: 30px;
     background: white;
-
+    z-index: 10;
     img {
       background: white;
       object-fit: contain;

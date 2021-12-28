@@ -36,7 +36,7 @@ const Post = ({ imageUrl, username, caption, postId, user }) => {
     e.preventDefault()
     confirmAlert({
       title: 'This will permanently delete your post',
-      message: 'Are you sure you wont to delete post',
+      message: 'Are you sure you want to delete post',
       buttons: [
         {
           label: 'Yes',
@@ -85,17 +85,19 @@ const Post = ({ imageUrl, username, caption, postId, user }) => {
           </p>
         ))}
       </div>
-      <form>
-        <input
-          type='text'
-          placeholder='Add a comment..'
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <Button type='submit' disabled={!comment} onClick={postComment}>
-          Post
-        </Button>
-      </form>
+      {user && (
+        <form>
+          <input
+            type='text'
+            placeholder='Add a comment..'
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <Button type='submit' disabled={!comment} onClick={postComment}>
+            Post
+          </Button>
+        </form>
+      )}
     </div>
   )
 }
