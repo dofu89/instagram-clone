@@ -61,7 +61,11 @@ const Post = ({ imageUrl, username, caption, postId, user }) => {
           />
           <h3>{username}</h3>
         </div>
-        <DeleteIcon style={{ cursor: 'pointer' }} onClick={deletePost} />
+        {username === user?.displayName ? (
+          <DeleteIcon style={{ cursor: 'pointer' }} onClick={deletePost} />
+        ) : (
+          console.log('zabranjeno brisanje')
+        )}
       </div>
 
       {/*header -> avatar and username */}
