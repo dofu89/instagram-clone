@@ -120,7 +120,7 @@ const App = () => {
             />
             <Input
               type='password'
-              placeholder='passwprd'
+              placeholder='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -148,7 +148,7 @@ const App = () => {
             />
             <Input
               type='password'
-              placeholder='passwprd'
+              placeholder='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -164,7 +164,12 @@ const App = () => {
           src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
           alt='instagram-logo'
         />
-        <h4>{user?.displayName}</h4>
+
+        {user?.displayName ? (
+          <h3>{user?.displayName}</h3>
+        ) : (
+          <h3>Login to upload</h3>
+        )}
         {user ? (
           <Button onClick={logOut}>Logout</Button>
         ) : (
